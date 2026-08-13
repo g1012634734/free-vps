@@ -1,22 +1,28 @@
-# fly.toml app configuration file generated for free-vps1012634734 on 2026-08-13T03:39:37Z
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+# fly.toml app configuration file for free-vps1012634734
 
 app = 'free-vps1012634734'
 primary_region = 'sin'
 
 [build]
 
-[services]
+# 1. SSH 服务端口映射 (内部 22 -> 外部 2222)
+[[services]]
   protocol = "tcp"
   internal_port = 22
 
   [[services.ports]]
     port = 2222
 
+# 2. 转换引擎服务端口映射 (内部 25500 -> 外部 25500)
+[[services]]
+  protocol = "tcp"
+  internal_port = 25500
+
+  [[services.ports]]
+    port = 25500
+    handlers = ["http"]
+
 [[vm]]
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
-  memory_mb = 256
