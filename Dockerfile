@@ -23,6 +23,10 @@ RUN apt-get update && apt-get install -y \
     git \
     htop \
     net-tools \
+    wget https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz && \
+tar -zxvf subconverter_linux64.tar.gz && \
+mv subconverter /usr/local/bin/ && \
+rm subconverter_linux64.tar.gz && \
     && rm -rf /var/lib/apt/lists/*
 
 # 创建SSH目录
@@ -54,4 +58,4 @@ EXPOSE 22
 # ============================================================
 # 启动SSH服务
 # ============================================================
-CMD ["/usr/sbin/sshd", "-D"]
+CMD /usr/local/bin/subconverter/subconverter & /usr/sbin/sshd -D
