@@ -14,6 +14,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # ============================================================
 # 创建用户和配置SSH
 # ============================================================
+# 安装基础工具
 RUN apt-get update && apt-get install -y \
     openssh-server \
     sudo \
@@ -22,12 +23,13 @@ RUN apt-get update && apt-get install -y \
     vim \
     git \
     htop \
-    net-tools \
-    wget https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz && \
-tar -zxvf subconverter_linux64.tar.gz && \
-mv subconverter /usr/local/bin/ && \
-rm subconverter_linux64.tar.gz && \
-    && rm -rf /var/lib/apt/lists/*
+    net-tools
+
+# 下载并解压 subconverter 转换工具
+RUN wget https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz && \
+    tar -zxvf subconverter_linux64.tar.gz && \
+    mv subconverter /usr/local/bin/ && \
+    rm subconverter_linux64.tar.gz
 
 # 创建SSH目录
 RUN mkdir -p /var/run/sshd
