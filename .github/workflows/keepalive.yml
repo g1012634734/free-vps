@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Ping Free-vps App
         run: |
-          curl -I "https://free-vps-1837620632.fly.dev/sub?target=clash&url=https%3%EF%BD%9F-%pages.dev%32F%Fush%EF%Proken%D3%D21%F2%A0fela2dfec0fedal5C748028AFFi&insert=false"
+          curl -I "https://edgetunnel-db-54x.pages.dev/sub?token=2212ba9a24e8ee2fe6d4b7576028a8ff"
