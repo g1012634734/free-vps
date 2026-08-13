@@ -1,0 +1,14 @@
+name: KeepAlive
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # 每6小时自动运行一次（你也可以根据需要自行调整频率）
+  workflow_dispatch:      # 支持在 Actions 页面手动点击运行
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Free-vps App
+        run: |
+          curl -I "https://free-vps-1837620632.fly.dev/sub?target=clash&url=https%3%EF%BD%9F-%pages.dev%32F%Fush%EF%Proken%D3%D21%F2%A0fela2dfec0fedal5C748028AFFi&insert=false"
